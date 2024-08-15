@@ -11,17 +11,40 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleNavMenu() {
         return navMenu.classList.toggle('nav-active');
     }
+    
     const toggleDropdown = (event) => {
         event.stopPropagation();
         dropdown.classList.toggle('nav-active');
     };
+
     const preventMenuClose = (event) => event.stopPropagation();
+    
     const closeMenuOnOutsideClick = (event) => {
         if (!navMenu.contains(event.target) && !burger.contains(event.target)) {
             navMenu.classList.remove('nav-active');
             dropdown.classList.remove('nav-active');
         }
     };
+
+    // Cierre del menú cuando se hace clic en un enlace
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', (event) => {
+            const submenu = document.querySelector('.portfolio-dropdown .submenu');
+            const isDropdownLink = dropdown.contains(event.target);
+            const isSubmenuLink = submenu && submenu.contains(event.target);
+
+            // Evita cerrar el menú si se interactúa con "Portafolio"
+            if (!isDropdownLink) {
+                navMenu.classList.remove('nav-active');
+            }
+
+            // Cierra el menú si se selecciona un enlace dentro del submenú
+            if (isSubmenuLink) {
+                navMenu.classList.remove('nav-active');
+                dropdown.classList.remove('nav-active');
+            }
+        });
+    });
 
     burger.addEventListener('click', toggleNavMenu);
     dropdown.addEventListener('click', toggleDropdown);
