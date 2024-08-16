@@ -45,24 +45,22 @@ a {
     color: #fff;
     font-size: 24px;
     cursor: pointer;
-    z-index: 1001; /* Asegúrate de que el ícono esté sobre el menú */
+    z-index: 1001;
     transition: transform 0.3s ease;
 }
 
 .burger.active i {
-    content: '\f00d'; /* Código Unicode de la "X" de Font Awesome */
-    font-family: "Font Awesome 5 Free"; /* Asegúrate de que Font Awesome esté disponible */
+    content: '\f00d';
+    font-family: "Font Awesome 5 Free";
 }
 
-/* Reglas para la transición entre ícono de hamburguesa y X */
 .burger i {
     transition: transform 0.3s ease;
 }
 
-/* Ajustes para dispositivos móviles */
 @media (max-width: 768px) {
     .burger.active i {
-        transform: rotate(90deg); /* Transforma el ícono para un efecto más dinámico */
+        transform: rotate(90deg);
     }
 }
 
@@ -157,7 +155,6 @@ a {
     object-fit: cover;
 }
 
-/* Content on top of the video */
 .hero-content {
     position: absolute;
     top: 50%;
@@ -198,6 +195,18 @@ a {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animaciones para imágenes */
+.fade-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: scale(1);
 }
 
 /* Sección Sobre mí */
@@ -257,12 +266,7 @@ img {
 .portfolio-category img {
     width: 80%;
     border-radius: 10px;
-    transition: transform 0.5s ease;
     max-width: 500px;
-}
-
-.portfolio-category img:hover {
-    transform: scale(1.05);
 }
 
 .portfolio-gallery {
