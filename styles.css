@@ -355,7 +355,7 @@ img {
     }
     .fade-in {
         transform: translateX(-50px) scale(0.9); /* Desplazamiento horizontal en móviles */
-        transition: transform 0.4s ease-out, opacity 0.4s ease-out; /* Mayor duración para que sea más perceptible */
+        transition: transform 0.4s ease-out, opacity 1s ease-out; /* Mayor duración para que sea más perceptible */
     }
 
     .fade-in.visible {
