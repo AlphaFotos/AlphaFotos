@@ -74,18 +74,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Animación de imágenes al hacer scroll
+    // Animación de imágenes con Intersection Observer
     const images = document.querySelectorAll('.fade-in');
 
-    const handleScroll = () => {
-        images.forEach(image => {
-            const rect = image.getBoundingClientRect();
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-                image.classList.add('visible');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            } else {
+                entry.target.classList.remove('visible'); // Esto permite que la animación se repita al volver a ser visible
             }
         });
-    };
+    }, {
+        threshold: 0.1 // Ajusta el umbral según prefieras
+    });
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll();
+    images.forEach(image => {
+        observer.observe(image);
+    });
 });

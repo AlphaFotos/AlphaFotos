@@ -191,12 +191,6 @@ a {
     color: #fff;
 }
 
-/* Animaciones */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
 /* Animaciones para imágenes */
 .fade-in {
     opacity: 0;
@@ -207,6 +201,17 @@ a {
 .fade-in.visible {
     opacity: 1;
     transform: translateY(0) scale(1); /* Efecto más notable */
+}
+
+@media (max-width: 768px) {
+    .fade-in {
+        transform: translateX(-50px) scale(0.5); /* Desplazamiento horizontal en móviles */
+        transition: transform 0.4s ease-out, opacity 1.5s ease-out; /* Mayor duración para que sea más perceptible */
+    }
+
+    .fade-in.visible {
+        transform: translateX(0) scale(1);
+    }
 }
 
 /* Sección Sobre mí */
@@ -353,14 +358,7 @@ img {
     .navbar .burger {
         display: block;
     }
-    .fade-in {
-        transform: translateX(-50px) scale(0.5); /* Desplazamiento horizontal en móviles */
-        transition: transform 0.4s ease-out, opacity 1.5s ease-out; /* Mayor duración para que sea más perceptible */
-    }
 
-    .fade-in.visible {
-        transform: translateX(0) scale(1);
-    }
     .nav-menu {
         display: none;
         flex-direction: column;
