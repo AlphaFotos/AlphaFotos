@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const navMenu = document.querySelector('.nav-menu');
     const dropdown = document.querySelector('.portfolio-dropdown');
     const submenu = document.querySelector('.portfolio-dropdown .submenu');
+    const burgerIcon = burger.querySelector('i');
 
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
@@ -15,8 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
         // Asegura que el submenú siempre esté desplegado al abrir el menú
         if (navMenu.classList.contains('nav-active')) {
             submenu.style.display = 'flex'; // Despliega el submenú
+            burgerIcon.classList.remove('fa-bars');
+            burgerIcon.classList.add('fa-times'); // Cambia el ícono a "X"
         } else {
             submenu.style.display = 'none'; // Oculta el submenú si se cierra el menú principal
+            burgerIcon.classList.remove('fa-times');
+            burgerIcon.classList.add('fa-bars'); // Cambia el ícono a hamburguesa
         }
     }
 
@@ -33,6 +38,8 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.remove('nav-active');
             dropdown.classList.remove('nav-active');
             submenu.style.display = 'none'; // Oculta el submenú si se hace clic fuera del menú
+            burgerIcon.classList.remove('fa-times');
+            burgerIcon.classList.add('fa-bars'); // Cambia el ícono a hamburguesa
         }
     };
 
@@ -45,12 +52,16 @@ document.addEventListener('DOMContentLoaded', () => {
             // Evita cerrar el menú si se interactúa con "Portafolio"
             if (!isDropdownLink) {
                 navMenu.classList.remove('nav-active');
+                burgerIcon.classList.remove('fa-times');
+                burgerIcon.classList.add('fa-bars'); // Cambia el ícono a hamburguesa
             }
 
             // Cierra el menú si se selecciona un enlace dentro del submenú
             if (isSubmenuLink) {
                 navMenu.classList.remove('nav-active');
                 submenu.style.display = 'none';
+                burgerIcon.classList.remove('fa-times');
+                burgerIcon.classList.add('fa-bars'); // Cambia el ícono a hamburguesa
             }
         });
     });
