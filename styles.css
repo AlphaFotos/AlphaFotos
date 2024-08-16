@@ -200,13 +200,13 @@ a {
 /* Animaciones para imágenes */
 .fade-in {
     opacity: 0;
-    transform: scale(0.9);
-    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+    transform: translateY(30px) scale(0.8); /* Aumentamos el desplazamiento y el scale */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Reducimos el tiempo de transición */
 }
 
 .fade-in.visible {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0) scale(1); /* Efecto más notable */
 }
 
 /* Sección Sobre mí */
@@ -353,7 +353,14 @@ img {
     .navbar .burger {
         display: block;
     }
+    .fade-in {
+        transform: translateX(-50px) scale(0.9); /* Desplazamiento horizontal en móviles */
+        transition: transform 0.4s ease-out, opacity 0.4s ease-out; /* Mayor duración para que sea más perceptible */
+    }
 
+    .fade-in.visible {
+        transform: translateX(0) scale(1);
+    }
     .nav-menu {
         display: none;
         flex-direction: column;
