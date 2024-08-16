@@ -195,7 +195,7 @@ a {
 .fade-in {
     opacity: 0;
     transform: translateY(30px) scale(0.8); /* Aumentamos el desplazamiento y el scale */
-    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Reducimos el tiempo de transición */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Reducimos el tiempo de transición */
 }
 
 .fade-in.visible {
@@ -206,7 +206,7 @@ a {
 @media (max-width: 768px) {
     .fade-in {
         transform: translateX(-50px) scale(0.5); /* Desplazamiento horizontal en móviles */
-        transition: transform 0.4s ease-out, opacity 1.5s ease-out; /* Mayor duración para que sea más perceptible */
+        transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Mayor duración para que sea más perceptible */
     }
 
     .fade-in.visible {
@@ -419,7 +419,7 @@ a:active {
 
 section {
     opacity: 0;
-    animation: fadeInSection 1s ease-in-out forwards;
+    animation: fadeInSection 1.5s ease-in-out forwards;
     animation-delay: 0.2s;
 }
 
