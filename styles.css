@@ -54,8 +54,8 @@ a {
     background-color: #000;
     position: absolute;
     top: 70px;
-    right: 20px;
-    width: 250px;
+    right: 0px;
+    width: 230px;
     max-height: 470px;
     padding: 20px;
     border-radius: 8px;
@@ -338,8 +338,8 @@ img {
         background-color: #000;
         position: absolute;
         top: 70px;
-        right: 20px;
-        width: 250px;
+        right: 0px;
+        width: 220px;
         max-height: 450px;
         padding: 20px;
         border-radius: 8px;
