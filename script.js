@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const burger = document.querySelector('.burger');
     const navMenu = document.querySelector('.nav-menu');
     const dropdown = document.querySelector('.portfolio-dropdown');
+    const submenu = document.querySelector('.portfolio-dropdown .submenu');
 
     document.addEventListener('contextmenu', function(e) {
         e.preventDefault();
@@ -9,12 +10,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Funcionalidad del menú de navegación móvil (tipo hamburguesa)
     function toggleNavMenu() {
-        return navMenu.classList.toggle('nav-active');
+        navMenu.classList.toggle('nav-active');
+
+        // Asegura que el submenú siempre esté desplegado al abrir el menú
+        if (navMenu.classList.contains('nav-active')) {
+            submenu.style.display = 'flex'; // Despliega el submenú
+        } else {
+            submenu.style.display = 'none'; // Oculta el submenú si se cierra el menú principal
+        }
     }
-    
+
+    // Función para alternar el submenú manualmente
     const toggleDropdown = (event) => {
         event.stopPropagation();
-        dropdown.classList.toggle('nav-active');
+        submenu.style.display = (submenu.style.display === 'flex') ? 'none' : 'flex';
     };
 
     const preventMenuClose = (event) => event.stopPropagation();
@@ -23,13 +32,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!navMenu.contains(event.target) && !burger.contains(event.target)) {
             navMenu.classList.remove('nav-active');
             dropdown.classList.remove('nav-active');
+            submenu.style.display = 'none'; // Oculta el submenú si se hace clic fuera del menú
         }
     };
 
     // Cierre del menú cuando se hace clic en un enlace
     document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', (event) => {
-            const submenu = document.querySelector('.portfolio-dropdown .submenu');
             const isDropdownLink = dropdown.contains(event.target);
             const isSubmenuLink = submenu && submenu.contains(event.target);
 
@@ -41,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Cierra el menú si se selecciona un enlace dentro del submenú
             if (isSubmenuLink) {
                 navMenu.classList.remove('nav-active');
-                dropdown.classList.remove('nav-active');
+                submenu.style.display = 'none';
             }
         });
     });
