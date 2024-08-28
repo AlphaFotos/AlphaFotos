@@ -326,11 +326,21 @@ img {
     height: 150px;
 }
 
+.signature {
+    text-align: center; /* Centra la imagen horizontalmente */
+    margin-bottom: 10px; /* Añade espacio entre la firma y el footer */
+}
+
+.signature img {
+    max-width: 450px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: auto; /* Mantiene la proporción de la imagen */
+}
+
 /* Footer */
 .footer {
     background-color: #000;
     color: white;
-    padding: 20px 0;
+    padding: 5px 0;
     text-align: center;
 }
 
