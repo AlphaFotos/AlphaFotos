@@ -366,9 +366,10 @@ img {
 /* Media Queries para Ajustes Móviles */
 @media (max-width: 768px) {
 
-    .signature {
-        max-width: 150px; /* Ajusta este valor según el tamaño que prefieras en móviles */
-        height: auto;
+    .signature img {
+        width: 100px !important; /* Aplica un ancho fijo en móviles */
+        max-width: 100px !important;
+        height: auto !important;
     }
 
     .navbar .burger {
