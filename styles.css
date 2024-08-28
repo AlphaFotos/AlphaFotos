@@ -367,7 +367,8 @@ img {
 @media (max-width: 768px) {
 
     .signature {
-        max-width: 100px; /* Ajusta este valor según el tamaño que prefieras en móviles */
+        max-width: 150px; /* Ajusta este valor según el tamaño que prefieras en móviles */
+        height: auto;
     }
 
     .navbar .burger {
