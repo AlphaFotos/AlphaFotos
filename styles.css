@@ -367,8 +367,8 @@ img {
 @media (max-width: 768px) {
 
     .signature img {
-        width: 200px !important; /* Aplica un ancho fijo en móviles */
-        max-width: 200px !important;
+        width: 250px !important; /* Aplica un ancho fijo en móviles */
+        max-width: 250px !important;
         height: auto !important;
     }
 
